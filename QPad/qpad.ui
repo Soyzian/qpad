@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>qpad</class>
+ <widget class="QMainWindow" name="qpad">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1561</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>qpad</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>1491</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="currentIndex">
+     <number>-1</number>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>1494</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>B</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>18</pointsize>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>I</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>18</pointsize>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>U</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>18</pointsize>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <strikeout>true</strikeout>
+        </font>
+       </property>
+       <property name="text">
+        <string>S</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Tamaño de fuente</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="spinBox"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Fuente</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFontComboBox" name="fontComboBox"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Alineación</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>Izquierda</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Centrado</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Derecha</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Justificar</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="font">
+        <font>
+         <family>Consolas</family>
+         <pointsize>14</pointsize>
+         <italic>true</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;/&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="font">
+        <font>
+         <family>Cambria Math</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="HTML_switch">
+       <property name="text">
+        <string>Editar HTML...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="HTML_run">
+       <property name="font">
+        <font>
+         <family>Webdings</family>
+         <pointsize>26</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1561</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuQPad">
+    <property name="title">
+     <string>QPad</string>
+    </property>
+    <addaction name="actionVersion"/>
+    <addaction name="actionUpdate"/>
+    <addaction name="actionCerrar"/>
+   </widget>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <widget class="QMenu" name="menuAbrir">
+     <property name="title">
+      <string>Abrir como...</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menuGuardar_como">
+     <property name="title">
+      <string>Guardar como...</string>
+     </property>
+     <addaction name="actionHTML_2"/>
+     <addaction name="actionTXT"/>
+     <addaction name="actionMD"/>
+    </widget>
+    <widget class="QMenu" name="menuExportar">
+     <property name="title">
+      <string>Exportar</string>
+     </property>
+     <addaction name="actionRTF_2"/>
+    </widget>
+    <addaction name="actionNuevo"/>
+    <addaction name="actionAbrir"/>
+    <addaction name="actionGuardar_2"/>
+    <addaction name="menuAbrir"/>
+    <addaction name="separator"/>
+    <addaction name="menuGuardar_como"/>
+    <addaction name="menuExportar"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuEditar">
+    <property name="title">
+     <string>Editar</string>
+    </property>
+    <addaction name="actionPropiedades"/>
+    <addaction name="separator"/>
+    <addaction name="actionNegrtia_Ctrl_B"/>
+    <addaction name="separator"/>
+    <addaction name="actionCursiva_Ctrl_I"/>
+    <addaction name="actionSubrayar_Ctrl_U"/>
+    <addaction name="actionTachar_Ctrl_S"/>
+    <addaction name="actionCodigo_Ctrl_R"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="actionHTML_Crudo_Ctrl_Alt_R"/>
+   </widget>
+   <widget class="QMenu" name="menuHTML">
+    <property name="title">
+     <string>HTML</string>
+    </property>
+    <widget class="QMenu" name="menuPropiedades">
+     <property name="title">
+      <string>Propiedades...</string>
+     </property>
+     <addaction name="action_2"/>
+     <addaction name="actionAllocParser_V1"/>
+    </widget>
+    <addaction name="actionRun_View_Ctrl_E"/>
+    <addaction name="separator"/>
+    <addaction name="menuPropiedades"/>
+   </widget>
+   <addaction name="menuQPad"/>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuEditar"/>
+   <addaction name="menuHTML"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionVersion">
+   <property name="text">
+    <string>Version</string>
+   </property>
+  </action>
+  <action name="actionUpdate">
+   <property name="text">
+    <string>Update</string>
+   </property>
+  </action>
+  <action name="actionMarkdown">
+   <property name="text">
+    <string>Markdown</string>
+   </property>
+  </action>
+  <action name="actionHTML">
+   <property name="text">
+    <string>HTML</string>
+   </property>
+  </action>
+  <action name="actionPlain_Text">
+   <property name="text">
+    <string>Plain Text</string>
+   </property>
+  </action>
+  <action name="actionGuardar">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+  </action>
+  <action name="actionGuardar_2">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+  </action>
+  <action name="actionPropiedades">
+   <property name="text">
+    <string>Ajustes...</string>
+   </property>
+  </action>
+  <action name="actionNegrtia_Ctrl_B">
+   <property name="text">
+    <string>Negrtia (Ctrl + B)</string>
+   </property>
+  </action>
+  <action name="actionCursiva_Ctrl_I">
+   <property name="text">
+    <string>Cursiva (Ctrl + I)</string>
+   </property>
+  </action>
+  <action name="actionSubrayar_Ctrl_U">
+   <property name="text">
+    <string>Subrayar (Ctrl + U)</string>
+   </property>
+  </action>
+  <action name="actionTachar_Ctrl_S">
+   <property name="text">
+    <string>Tachar (Ctrl + S)</string>
+   </property>
+  </action>
+  <action name="actionCodigo_Ctrl_R">
+   <property name="text">
+    <string>Codigo (Ctrl + R)</string>
+   </property>
+  </action>
+  <action name="actionHTML_Crudo_Ctrl_Alt_R">
+   <property name="text">
+    <string>-</string>
+   </property>
+  </action>
+  <action name="actionRun_View_Ctrl_E">
+   <property name="text">
+    <string>Ejecutar (Ctrl + E)</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>HTML.CPP</string>
+   </property>
+  </action>
+  <action name="actionAllocParser_V1">
+   <property name="text">
+    <string>MiniParser</string>
+   </property>
+  </action>
+  <action name="actionHTML_Proyecto">
+   <property name="text">
+    <string>HTML (Proyecto)</string>
+   </property>
+  </action>
+  <action name="actionMarkdown_2">
+   <property name="text">
+    <string>Markdown</string>
+   </property>
+  </action>
+  <action name="actionRTF">
+   <property name="text">
+    <string>RTF</string>
+   </property>
+  </action>
+  <action name="actionPlain_Text_2">
+   <property name="text">
+    <string>Plain Text</string>
+   </property>
+  </action>
+  <action name="actionHTML_2">
+   <property name="text">
+    <string>HTML</string>
+   </property>
+  </action>
+  <action name="actionTXT">
+   <property name="text">
+    <string>TXT</string>
+   </property>
+  </action>
+  <action name="actionRTF_2">
+   <property name="text">
+    <string>RTF</string>
+   </property>
+  </action>
+  <action name="actionMD">
+   <property name="text">
+    <string>MD</string>
+   </property>
+  </action>
+  <action name="actionNuevo">
+   <property name="text">
+    <string>Nuevo</string>
+   </property>
+  </action>
+  <action name="actionAbrir">
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+  </action>
+  <action name="actionCerrar">
+   <property name="text">
+    <string>Cerrar</string>
+   </property>
+  </action>
+  <action name="actionMinimizar">
+   <property name="text">
+    <string>Minimizar</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

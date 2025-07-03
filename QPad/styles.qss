@@ -1,0 +1,80 @@
+/* Fuente global para todos los widgets */
+* {
+    font-family: "Consolas";
+    font-size: 10pt;
+    color: #ffffff;
+}
+
+/* Fondo y texto principal */
+QMainWindow, QWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* QTextEdit y QPlainTextEdit */
+QTextEdit, QPlainTextEdit {
+    background-color: #252526;
+    color: #d4d4d4;
+    border: 1px solid #3c3c3c;
+    border-radius: 6px;
+    padding: 5px;
+    font-family: "Consolas";
+    font-size: 10pt;
+}
+
+/* Botones */
+QPushButton {
+    background-color: #2d2d30;
+    color: white;
+    border: 1px solid #3c3c3c;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: "Segoe UI";  /* Puedes usar otra fuente aquí */
+    font-size: 9pt;
+}
+
+QPushButton:hover {
+    background-color: #3e3e42;
+}
+
+QPushButton:pressed {
+    background-color: #0078d4;
+}
+
+/* Combos y SpinBoxes */
+QComboBox, QSpinBox, QFontComboBox {
+    background-color: #2d2d30;
+    color: white;
+    border: 1px solid #3c3c3c;
+    border-radius: 6px;
+    padding: 3px;
+    font-family: "Consolas";
+    font-size: 10pt;
+}
+
+/* Pestañas */
+QTabWidget::pane {
+    border: 1px solid #3c3c3c;
+    background-color: #252526;
+}
+
+QTabBar::tab {
+    background: #2d2d30;
+    color: #ffffff;
+    padding: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    font-family: "Segoe UI";
+    font-size: 9pt;
+}
+
+QTabBar::tab:selected {
+    background: #0078d4;
+}
+
+/* Etiquetas */
+QLabel {
+    color: #ffffff;
+    font-family: "Segoe UI";
+    font-size: 9pt;
+}
