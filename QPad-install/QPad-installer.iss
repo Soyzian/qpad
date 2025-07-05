@@ -1,4 +1,6 @@
-; QPadInstaller.iss
+; ————————————————————————————————————————————————————————————————————————————————————————————————
+; QPadInstaller.iss – Instalador con clone vs pull y acceso directo dinámico
+; ————————————————————————————————————————————————————————————————————————————————————————————————
 
 [Setup]
 AppName=QPad
@@ -15,101 +17,98 @@ SetupIconFile=QPadres\Ico\icon.ico
 Name: "default"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-; Solo empaquetamos Git.zip, el resto lo clona Git Portable
 Source: "Git.zip"; DestDir: "{tmp}"; Flags: ignoreversion
 Source: "QPadres\Ico\icoqpad.ico"; DestDir: "{app}\Ico"; Flags: ignoreversion recursesubdirs createallsubdirs
 
+[Registry]
+Root: HKCU; Subkey: "Software\QPad"; ValueType: string; ValueName: "RepoDir"; ValueData: "{code:GetRepoDir}"; Flags: createvalueifdoesntexist uninsdeletekey
+
 [Icons]
-; No definimos iconos estáticos aqui; se crearán dinámicamente en [Code]
+Name: "{group}\QPad"; Filename: "{app}\qpad\QPad.exe"; WorkingDir: "{app}\qpad"; IconFilename: "{app}\Ico\icoqpad.ico"; IconIndex: 0; Tasks: desktopicon
+Name: "{group}\Desinstalar QPad"; Filename: "{uninstallexe}"
+
+[Tasks]
+Name: desktopicon; Description: "Crear acceso directo en el Escritorio"; GroupDescription: "Tareas opcionales:"; Flags: unchecked
+Name: cleaninstall; Description: "Realizar instalación limpia (borrar carpeta previa)"; GroupDescription: "Tareas opcionales:"; Flags: unchecked
+
+[UninstallDelete]
+Type: filesandordirs; Name: "{reg:HKCU\\Software\\QPad,RepoDir}"
 
 [Code]
 var
+  DirPage: TInputDirWizardPage;
   RepoDir: string;
   ResultCode: Integer;
 
-function GetUserClonePath(): string;
+function GetRepoDir(Value: string): string;
 begin
-  Result := '';
-  if BrowseForFolder('Seleccionar carpeta de destino para QPad', Result, False) then
-    Result := AddBackslash(Result) + 'qpad';
+  Result := RepoDir;
 end;
 
 procedure InitializeWizard();
 begin
-  RepoDir := GetUserClonePath();
-  if RepoDir = '' then
-    WizardForm.Close; // Usuario canceló
+  DirPage := CreateInputDirPage(
+    wpSelectDir,
+    '¿Dónde quieres clonar el código de QPad?',
+    'Selecciona la carpeta donde se guardará el repositorio:',
+    'Dentro de ella se creará la carpeta "qpad".',
+    False,
+    ''
+  );
+  DirPage.Add('');
+  DirPage.Values[0] := WizardForm.DirEdit.Text;
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 var
-  GitDir, GitExe, UnzipCmd, CmdScriptPath, ExePath: string;
-  SL: TStringList;
+  GitDir, GitExe, UnzipCmd, ExePath: string;
 begin
-  if CurStep <> ssPostInstall then
-    Exit;
+  if CurStep <> ssPostInstall then Exit;
 
-  // 1) Descomprimir Git Portable
+  RepoDir := AddBackslash(DirPage.Values[0]) + 'qpad_repo';
+
   GitDir := ExpandConstant('{tmp}');
-  GitExe := GitDir + '\Git\Cmd\git.exe';
-  MsgBox('Descomprimiendo Git Portable...', mbInformation, MB_OK);
-  UnzipCmd := 'powershell -Command "Expand-Archive -Path ''' +
-              ExpandConstant('{tmp}\Git.zip') +
-              ''' -DestinationPath ''' + GitDir +
-              ''' -Force"';
-  Exec('cmd.exe', '/c ' + UnzipCmd, '', SW_SHOW, ewWaitUntilTerminated, ResultCode);
+UnzipCmd := 'powershell -NoProfile -InputFormat None -Command "& { Add-Type -AssemblyName ''System.IO.Compression.FileSystem''; [IO.Compression.ZipFile]::ExtractToDirectory(''' + ExpandConstant('{tmp}') + '\\Git.zip'', ''' + GitDir + ''') }"';
+  Exec('cmd.exe', '/k "' + UnzipCmd + ' & echo. & echo Presioná ENTER para salir... & pause >nul"', '', SW_SHOW, ewWaitUntilTerminated, ResultCode);
 
-  // 2) Verificar git.exe
+  GitExe := GitDir + '\Git\Cmd\git.exe';
   if not FileExists(GitExe) then
   begin
-    MsgBox('Error: git.exe no se encontró en:'#13#10 + GitExe,
-           mbCriticalError, MB_OK);
+    MsgBox('Error: git.exe no se encontró en:'#13#10 + GitExe, mbCriticalError, MB_OK);
     Exit;
   end;
 
-  // 3) Crear script temporal para el clone
-  CmdScriptPath := ExpandConstant('{tmp}\runclone.cmd');
-  SL := TStringList.Create;
-  try
-    SL.Add('@echo off');
-    SL.Add('echo Clonando QPad desde GitHub...');
-    SL.Add('"' + GitExe + '" clone https://github.com/Soyzian/qpad-raw "' + RepoDir + '"');
-    SL.Add('pause');
-    SL.SaveToFile(CmdScriptPath);
-  finally
-    SL.Free;
+  if IsTaskSelected('cleaninstall') then
+  begin
+    if DirExists(RepoDir) then
+      DelTree(RepoDir, True, True, True);
   end;
+  
+  if DirExists(RepoDir + '\.git') then
+    Exec('cmd.exe', '/k ""' + GitExe + '" -C "' + RepoDir + '" pull & echo. & echo Presioná ENTER para salir..."', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
+  else
+    DelTree(RepoDir, True, True, True);
+    Exec('cmd.exe', '/k ""' + GitExe + '" clone https://github.com/Soyzian/qpad-raw "' + RepoDir + '" & echo. & echo Presioná ENTER para salir..."', '', SW_SHOW, ewWaitUntilTerminated, ResultCode);
 
-  // 4) Ejecutar el script visible
-  MsgBox('Se abrirá una ventana para clonar el repositorio. Esperá a que termine.',
-         mbInformation, MB_OK);
-  Exec('cmd.exe', '/c "' + CmdScriptPath + '"', '', SW_SHOWNORMAL,
-       ewWaitUntilTerminated, ResultCode);
-
-  // 5) Verificar QPad.exe
   ExePath := RepoDir + '\qpad\QPad.exe';
   if not FileExists(ExePath) then
   begin
-    MsgBox('Error: no se encontró QPad.exe en:'#13#10 + ExePath,
-           mbCriticalError, MB_OK);
+    MsgBox('Error: no se encontró QPad.exe en:'#13#10 + ExePath, mbCriticalError, MB_OK);
     Exit;
   end;
 
-  // 6) Crear acceso directo en Escritorio
+  if FileExists(ExpandConstant('{userdesktop}\QPad.lnk')) then
+    DeleteFile(ExpandConstant('{userdesktop}\QPad.lnk'));
   CreateShellLink(
     ExpandConstant('{userdesktop}\QPad.lnk'),
     '',
     ExePath,
-    '',                               // Sin parámetros
-    ExtractFileDir(ExePath),          // WorkingDir
-    ExpandConstant('{app}\Ico\iconqpad.ico'), // Icono
-    0,                                // IconIndex
-    SW_SHOWNORMAL                     // ShowCmd
+    '',
+    ExtractFileDir(ExePath),
+    ExpandConstant('{app}\Ico\icoqpad.ico'),
+    0,
+    SW_SHOWNORMAL
   );
-  
-  if not FileExists(ExpandConstant('{app}\QPadres\Ico\icoqpad.ico')) then
-  MsgBox('¡Error: no existe el icono en {app}\QPadres\Ico\iconqpad.ico!', mbError, MB_OK);
 
-  MsgBox('QPad se instaló correctamente en:'#13#10 + ExePath,
-         mbInformation, MB_OK);
+  MsgBox('¡QPad instalado correctamente!'#13#10 + 'Ejecutable: ' + ExePath, mbInformation, MB_OK);
 end;
