@@ -4,7 +4,7 @@
 
 [Setup]
 AppName=QPad
-AppVersion=1.0
+AppVersion=1.1.0
 DefaultDirName={pf}\QPad
 DefaultGroupName=QPad
 OutputDir=.
@@ -18,7 +18,6 @@ Name: "default"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 Source: "Git.zip"; DestDir: "{tmp}"; Flags: ignoreversion
-Source: "QPadres\Ico\icoqpad.ico"; DestDir: "{app}\Ico"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Registry]
 Root: HKCU; Subkey: "Software\QPad"; ValueType: string; ValueName: "RepoDir"; ValueData: "{code:GetRepoDir}"; Flags: createvalueifdoesntexist uninsdeletekey
