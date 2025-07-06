@@ -17,14 +17,13 @@
 ## ✨ Características principales (roadmap)
 
 - ✅ Editor de texto enriquecido básico
-- ✅ Soporte para archivos `.qtf`, `.txt` y `.html`
-- ⏳ Interfaz limpia y adaptativa con Qt6
+- ✅ Planeo de Soporte para archivos `.qtf`, `.txt` y `.html`
+- ⏳ Interfaz limpia con Qt6
 - ⏳ Soporte parcial para estilos (negrita, cursiva, subrayado, color)
-- ⏳ Visualización directa del QTF
-- 🛠 Exportación e importación entre QTF ↔ HTML ↔ TXT
-- 🔜 Syntax Highlighting para QTF
-- 🔜 Previsualización en vivo
-- 🔜 Plugin system
+- ⏳ Visualización directa de RTF
+- 🛠 Planeo Exportación e importación entre QTF ↔ HTML ↔ TXT
+- 🔜 Planeo de Syntax Highlighting para QTF
+- 🔜 Planeo de Previsualización en vivo
 
 ---
 
