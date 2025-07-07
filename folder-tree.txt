@@ -1,0 +1,196 @@
+Listado de rutas de carpetas
+C:.
++---QPad
+|   \---db-experimenting
++---QPad-install
+|   \---QPadres
+|       +---Ico
+|       +---images
+|       \---Skins
++---QPad-main
+|   \---res
++---QPad-splash
+|   +---.idea
+|   |   \---inspectionProfiles
+|   +---.venv
+|   |   +---Include
+|   |   \---Lib
+|   |       \---site-packages
+|   |           +---altgraph
+|   |           |   \---__pycache__
+|   |           +---altgraph-0.17.4.dist-info
+|   |           +---certifi
+|   |           |   \---__pycache__
+|   |           +---certifi-2025.6.15.dist-info
+|   |           |   \---licenses
+|   |           +---charset_normalizer
+|   |           |   +---cli
+|   |           |   |   \---__pycache__
+|   |           |   \---__pycache__
+|   |           +---charset_normalizer-3.4.2.dist-info
+|   |           |   \---licenses
+|   |           +---idna
+|   |           |   \---__pycache__
+|   |           +---idna-3.10.dist-info
+|   |           +---ordlookup
+|   |           |   \---__pycache__
+|   |           +---packaging
+|   |           |   +---licenses
+|   |           |   |   \---__pycache__
+|   |           |   \---__pycache__
+|   |           +---packaging-25.0.dist-info
+|   |           |   \---licenses
+|   |           +---pefile-2023.2.7.dist-info
+|   |           +---PIL
+|   |           |   \---__pycache__
+|   |           +---pillow-11.3.0.dist-info
+|   |           |   \---licenses
+|   |           \---pip
+|   |               +---_internal
+|   |               |   +---cli
+|   |               |   |   \---__pycache__
+|   |               |   +---commands
+|   |               |   |   \---__pycache__
+|   |               |   +---distributions
+|   |               |   |   \---__pycache__
+|   |               |   +---index
+|   |               |   |   \---__pycache__
+|   |               |   +---locations
+|   |               |   |   \---__pycache__
+|   |               |   +---metadata
+|   |               |   |   +---importlib
+|   |               |   |   |   \---__pycache__
+|   |               |   |   \---__pycache__
+|   |               |   +---models
+|   |               |   |   \---__pycache__
+|   |               |   +---network
+|   |               |   |   \---__pycache__
+|   |               |   +---operations
+|   |               |   |   +---build
+|   |               |   |   |   \---__pycache__
+|   |               |   |   +---install
+|   |               |   |   |   \---__pycache__
+|   |               |   |   \---__pycache__
+|   |               |   +---req
+|   |               |   |   \---__pycache__
+|   |               |   +---resolution
+|   |               |   |   +---legacy
+|   |               |   |   +---resolvelib
+|   |               |   |   |   \---__pycache__
+|   |               |   |   \---__pycache__
+|   |               |   +---utils
+|   |               |   |   \---__pycache__
+|   |               |   +---vcs
+|   |               |   |   \---__pycache__
+|   |               |   \---__pycache__
+|   |               \---_vendor
+|   |                   +---cachecontrol
+|   |                   |   +---caches
+|   |                   |   |   \---__pycache__
+|   |                   |   \---__pycache__
+|   |                   +---certifi
+|   |                   |   \---__pycache__
+|   |                   +---dependency_groups
+|   |                   |   \---__pycache__
+|   |                   +---distlib
+|   |                   |   \---__pycache__
+|   |                   +---distro
+|   |                   +---idna
+|   |                   |   \---__pycache__
+|   |                   +---msgpack
+|   |                   |   \---__pycache__
+|   |                   +---packaging
+|   |                   |   +---licenses
+|   |                   |   \---__pycache__
+|   |                   +---pkg_resources
+|   |                   +---platformdirs
+|   |                   |   \---__pycache__
+|   |                   +---pygments
+|   |                   |   +---filters
+|   |                   |   |   \---__pycache__
+|   |                   |   +---formatters
+|   |                   |   +---lexers
+|   |                   |   |   \---__pycache__
+|   |                   |   +---styles
+|   |                   |   |   \---__pycache__
+|   |                   |   \---__pycache__
+|   |                   \---pyproject_hooks
+|   |                       \---_in_process
+|   \---dist
+\---QPad-svc
+    \---qpad-update
+        +---.idea
+        |   \---inspectionProfiles
+        +---.venv
+        |   +---Include
+        |   \---Lib
+        |       \---site-packages
+        |           +---altgraph
+        |           |   \---__pycache__
+        |           +---altgraph-0.17.4.dist-info
+        |           +---certifi
+        |           |   \---__pycache__
+        |           +---certifi-2025.6.15.dist-info
+        |           |   \---licenses
+        |           +---charset_normalizer
+        |           |   +---cli
+        |           |   |   \---__pycache__
+        |           |   \---__pycache__
+        |           +---charset_normalizer-3.4.2.dist-info
+        |           |   \---licenses
+        |           +---idna
+        |           |   \---__pycache__
+        |           +---idna-3.10.dist-info
+        |           +---ordlookup
+        |           |   \---__pycache__
+        |           +---packaging
+        |           |   +---licenses
+        |           |   |   \---__pycache__
+        |           |   \---__pycache__
+        |           +---packaging-25.0.dist-info
+        |           |   \---licenses
+        |           +---pefile-2023.2.7.dist-info
+        |           \---pip
+        |               +---_internal
+        |               |   +---cli
+        |               |   |   \---__pycache__
+        |               |   +---commands
+        |               |   |   \---__pycache__
+        |               |   +---distributions
+        |               |   |   \---__pycache__
+        |               |   +---index
+        |               |   |   \---__pycache__
+        |               |   +---locations
+        |               |   |   \---__pycache__
+        |               |   +---metadata
+        |               |   |   +---importlib
+        |               |   |   |   \---__pycache__
+        |               |   |   \---__pycache__
+        |               |   +---models
+        |               |   |   \---__pycache__
+        |               |   +---network
+        |               |   |   \---__pycache__
+        |               |   +---operations
+        |               |   |   +---build
+        |               |   |   |   \---__pycache__
+        |               |   |   +---install
+        |               |   |   |   \---__pycache__
+        |               |   |   \---__pycache__
+        |               |   +---req
+        |               |   |   \---__pycache__
+        |               |   +---resolution
+        |               |   |   +---legacy
+        |               |   |   +---resolvelib
+        |               |   |   |   \---__pycache__
+        |               |   |   \---__pycache__
+        |               |   +---utils
+        |               |   |   \---__pycache__
+        |               |   +---vcs
+        |               |   |   \---__pycache__
+        |               |   \---__pycache__
+        |               \---_vendor
+        |                   \---cachecontrol
+        |                       +---caches
+        |                       |   \---__pycache__
+        |                       \---__pycache__
+        \---Ico
